@@ -1,0 +1,43 @@
+﻿@page "/index"
+@inject Application _application;
+
+<PageTitle>Rules Engine Blazor Demo</PageTitle>
+
+<h1>Rules Engine Blazor Demo</h1>
+
+@if(_application.IsLoggedIn)
+{
+    <h2>Welcome @_application.UserModel.Username!</h2>
+    @if(_application.IsEligibleForContent)
+    {
+        <div>
+            <div>Welcome, You can see the Content:</div>
+            <ul>
+                <li>Thanks for Subscribing to Premium!</li>
+            </ul>
+            @if(_application.IsEligibleForPrize)
+            {
+                @if(_application.IsPrizeClaimed)
+                {
+                    <div class="alert alert-success">You have been given our special Prize!</div>
+                }
+                else
+                {
+                    <div class="alert alert-info">You can also get our special Prize! Do you want it?</div>
+                    <br/>
+                    <div>
+                        <button type="button" class="btn btn-primary" @onclick="_application.Claim">Claim Prize</button>
+                    </div>
+                }
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">You can't see our Content, sorry!</div>
+    }
+    <br/>
+    <div>
+        <button type="button" class="btn btn-danger" @onclick="_application.Logout">Logout</button>
+    </div>
+}
