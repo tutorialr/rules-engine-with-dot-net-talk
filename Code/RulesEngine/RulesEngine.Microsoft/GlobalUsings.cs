@@ -1,0 +1,10 @@
+﻿global using RulesEngine.Common.Enum;
+global using RulesEngine.Common.Helper;
+global using RulesEngine.Common.Interfaces;
+global using RulesEngine.Common.Model;
+global using RulesEngine.Interfaces;
+global using RulesEngine.Microsoft.Factories;
+global using RulesEngine.Microsoft.Interfaces;
+global using RulesEngine.Microsoft.Rules;
+global using RulesEngine.Microsoft.Workflows;
+global using RulesEngine.Models;
